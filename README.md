@@ -34,6 +34,4 @@ You can find the website that we scrapped for this project on the following link
 * The [Flask application deployed with Heroku](http://footballerprediction.herokuapp.com/players)
 <br> 
 
-## Conclusion : 
-Overview of the website :  <br> <br>
-<img src="https://github.com/thomastrg/Price_prediction_footballers/blob/main/rapport/Hnet-image.gif" width="600" height="370"/>
+
