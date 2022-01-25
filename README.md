@@ -2,36 +2,31 @@
 
 
 ## Solution 
-Je suis fier de vous présenter le site hébergeant le système de recommandation : [http://footballerprediction.herokuapp.com/players](http://footballerprediction.herokuapp.com/players)
+Je suis fier de vous présenter le site hébergeant le système de recommandation : []()
 
 
 ## Introduction :
 
-Football is no longer just a sport, but also a major business. Player transfers are important for the clubs both in a sporting and a business sense. In the market, many millions of dollars are often paid for football players. Up to now in professional football, market values have primarily been estimated by sports magazines, or fans on internet platforms. 
+Avez-vous déjà entendu parler de **“scouting”** ? Si vous vous intéressez à l’univers du football et plus précisément au recrutement des joueurs, la réponse devrait être oui. Si ce n'est pas le cas, vous avez tout intérêt à poursuivre votre lecture afin de comprendre le rôle et l’importance du “football scout”.
 
-Both experts and fans estimates have repeatedly been shown to be highly accurate, but the estimation process is usually extremely complex. Market values are therefore often only updated once or twice a year. Our goal through this project is to implement a conjecturing model in order to predict the market value of a player according to his personal football skills and attributes. 
+La notion de **“scouting”** est directement liée à un métier : celui de recruteur. Mais attention ! Tous les recruteurs ne sont pas chargés de dénicher les nouvelles recrues de demain.
 
+*Comment trouver le joueur qui correspond à toutes nos attentes ?*
 
-*Comment trouver un joueur qui correspondrait à toutes nos attentes ?*
-
-Nowadays we think that some players might be over evaluated that's why **we implemented an application in order to predict any footballer's price only by entering his name**. The application will also predict your own market value according to your abilities.
-
-You can find the website that we scrapped for this project on the following link : [https://www.fifaindex.com/fr/players/](https://www.fifaindex.com/fr/players/)
-<br>
+Le concept est de prendre **un joueur de référence que l’on souhaite remplacer**, car il est voué à être transféré ou un joueur dont **le profil nous intéresse**. Nous lançons alors un algorithme de recommandation qui prendra en compte des données techniques, physiques, psychologiques et contextuelles du joueur de manière à avoir une liste de profils similaires, ainsi qu'à réaliser des recommandations à l’utilisateur pour lui permettre de trouver le joueur adéquat.
 
 
-## This project is implemented in Python and gathers tasks of :
-* Web scrapping : getting and storing data from a wesite
-* Data visualisation : interesting plots about players'market value and features on the Jupyter Notebook
-* Machine learning algorithm modelisation on the Jupyter Notebook
-* Transformation of the model into an API Flask
+
+
+## Ce projet est implémenté en Python et regroupe des tâches de :
+* Data visualisation & exploration : recherche de patterns au sein de données 
+* Algorithme de recommandation et de clustering
+* Industrialisation du projet à l'aide de **Streamlit** et de **GitHub**
   
 
-## You will find in this repositery : 
-* A [LaTeX report of the study](https://github.com/thomastrg/Price_prediction_footballers/blob/main/rapport/Player_Value_Prediction.pdf)
-* The [Scrapping function](https://github.com/thomastrg/Price_prediction_footballers/blob/main/Scrapping/Scrapping_fifaindex_function.py)
-* The [Data exploration processing and modeling Notebook](https://github.com/thomastrg/Price_prediction_footballers/tree/main/Modeling)
-* The [Flask application deployed with Heroku](http://footballerprediction.herokuapp.com/players)
+## Vous trouverez dans ce repositery : 
+* The [Data exploration processing and modeling Notebook]()
+* The [application deployed]()
 <br> 
 
 
