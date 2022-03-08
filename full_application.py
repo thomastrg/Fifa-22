@@ -81,6 +81,7 @@ def Accueil():
     
     
     df = load_data()
+    df=df.sort_values('Overall',ascending=False)
     nationality_list = list(df["Nationality"].unique())
     player_list = list(df["Name"].unique())
     positions_list=list(df["Best Position"].unique())
@@ -185,7 +186,7 @@ def Accueil():
     hide_streamlit_style = """
                 <style>
                     [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
-            width: 500px;
+            width: 490px;
         }
         [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
             width: 500px;
@@ -200,9 +201,9 @@ def Accueil():
     
     ##################################################################
     # sidebar filters
-    st.sidebar.title("Filtres")
+    st.sidebar.title(" &#128270; Filtres")
     
-    st.sidebar.title("Sélectionnez le joueur :")
+    st.sidebar.title("Sélectionnez le joueur à comparer:")
     
     target_player_name = st.sidebar.selectbox("Joueur:", [""] + player_list)
     
@@ -425,7 +426,7 @@ def Accueil():
 
         
         st.subheader(
-            "Si vous vous des questions ou des feedbacks, n'hésitez pas à me contacter via LinkedIn : https://www.linkedin.com/in/thomas-trang100/"
+            "Si vous avez des questions ou des feedbacks, n'hésitez pas à me contacter via LinkedIn : https://www.linkedin.com/in/thomas-trang100/"
         )
         st.title(
             "Thomas TRANG"
@@ -483,6 +484,7 @@ def app3():
         df['Wage (€)']=df['Wage (€)'].astype('float')
         df['zone_terrain']=df['Best Position'].apply(lambda x : "Milieu" if x.find('M')!=-1 else ( 'Defenseur' if (x.find('B')!=-1)  else ( "Gardien" if (x.find('K')!=-1) else 'Attaquant') ))
         df=df[~df['Name'].str.contains(r'\d')]
+        df['Evolution']=df['Potential']-df['Overall']
         return df
     df = load_data()
     
@@ -742,7 +744,7 @@ def app3():
         
     
     def equipe_les_meilleurs_espoirs(nb):
-        st.set_option('deprecation.showPyplotGlobalUse', False)
+        
         a=pd.DataFrame(df.groupby(['Club']).sum()['Evolution'].sort_values(ascending=False)).head(nb)
         f, ax = plt.subplots(figsize=(17, 7))
         p=sns.barplot(x=a['Evolution'],y=a.index,data=a, palette='Spectral')
@@ -774,7 +776,7 @@ def app3():
     if viz == "Comparaison des classements des meilleurs joueurs par club":
             st.subheader("")
             st.subheader("Choisissez les clubs dont vous souhaitez comparer les meilleurs joueurs puis cliquez sur le bouton 'Lancer la recherche'")
-            list_club=df['Club'].unique()
+            list_club=pd.DataFrame(df.groupby(['Club']).sum()['Value (€)'].sort_values(ascending=False)).index
             clubs = st.multiselect("Sélectionnez le(s) club(s) de votre choix:", options=list_club)
             if is_scan:
                 res=df[df['Club'].isin(clubs)].sort_values('Overall',ascending=False)[['Photo','Name','Age','Overall',"Club Logo","Flag",'Best Position','Value (€)']]
@@ -787,7 +789,7 @@ def app3():
     if viz == "Comparaison des classements des meilleurs joueurs par pays":
             st.subheader("")
             st.subheader("Choisissez les pays dont vous souhaitez comparer les meilleurs joueurs puis cliquez sur le bouton 'Lancer la recherche'")
-            list_pays=df['Nationality'].unique()
+            list_pays=pd.DataFrame(df.groupby(['Nationality']).sum()['Value (€)'].sort_values(ascending=False)).index
             pays = st.multiselect("Sélectionnez le(s) pays de votre choix:", options=list_pays)
             if is_scan:
                 res=df[df['Nationality'].isin(pays)].sort_values('Overall',ascending=False)[['Photo','Name','Age','Overall',"Club Logo","Flag",'Best Position','Value (€)']]
@@ -870,7 +872,7 @@ def Radars():
     df_fifa20=pd.read_csv('sofifa2020.csv')
     df["Name"]=df["Name"].apply(lambda name: unidecode(name))
     df=df[df['Overall']>76]
-    
+    df=df.sort_values('Overall',ascending=False)
     cols_to_keep=list(set(df.columns).intersection(df_fifa20.columns))
     index=0
     for i in ['Name', 'Age', 'Photo', 'Nationality',"Best Position",'Flag','Club','Club Logo','Jersey Number','Overall','Height','Weight']:
