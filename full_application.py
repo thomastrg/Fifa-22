@@ -97,12 +97,27 @@ def Accueil():
         "Photo",
         "Name",
         "Club Logo",
+        'Flag',
         "Age",
         "Best Position",
         "Overall",
         "Potential",
         "Preferred Foot",
         "Value (€)",
+        
+    ]
+    
+    show_columns_target = [
+        "Photo",
+        "Name",
+        "Club Logo",
+        'Flag',
+        "Age",
+        "Best Position",
+        "Overall",
+        "Potential",
+        "Preferred Foot",
+        
         
     ]
     
@@ -282,6 +297,13 @@ def Accueil():
                         row_html
                         + f'<td><img src="data:image/gif;base64,{data_url}" height="{image_height} width="{image_width}"></img></td>'
                     )
+                elif col == "Flag":
+                    local_photo = download_photo_url(row[col])
+                    data_url = upload_local_photo(local_photo)
+                    row_html = (
+                        row_html
+                        + f'<td><img src="data:image/gif;base64,{data_url}" height="54 width="54"></img></td>'
+                    )
                 elif col == "Club Logo":
                     local_photo = download_photo_url(row[col])
                     data_url = upload_local_photo(local_photo)
@@ -336,11 +358,7 @@ def Accueil():
         return pd.concat([search_space.iloc[index : index + 1, :] for index in indices])
     
     
-    @st.cache(allow_output_mutation=True)
-    def calc_target_player(target_player_name):
-        target_player = df.loc[df["Name"] == target_player_name]
-        return target_player
-    
+
     
     
     
@@ -351,8 +369,8 @@ def Accueil():
     
     # a dedicated single loader 
     
-        
-        target_player = calc_target_player(target_player_name)
+        target_player = df.loc[df["Name"] == target_player_name]
+        target_player["Value (€)"]=target_player["Value (€)"].apply(lambda v: str(float(v) / 1000000))
         target_player_age = target_player["Age"].iloc[0]
         target_player_teams = target_player["Club"].iloc[0]
         url = target_player["Photo"].iloc[0]
@@ -362,19 +380,19 @@ def Accueil():
     
         joueur_ligne=pd.DataFrame(target_player)
         
-        joueur_ligne["Value (€)"] = target_player["Value (€)"].apply(lambda v: str(float(v) / 1000000))
+        #joueur_ligne["Value (€)"] = target_player["Value (€)"].apply(lambda v: str(float(v) / 1000000))
         
         if joueur_ligne.shape[0]>1:
-            create_table(joueur_ligne[show_columns].head(1))
+            create_table(target_player[show_columns].head(1))
         else :
-            create_table(joueur_ligne[show_columns])
+            create_table(target_player[show_columns])
     
         with hc.HyLoader(f"Calcul en cours ... l'IA recherche les {top_K} joueurs les plus similaires",hc.Loaders.standard_loaders,index=3):
             time.sleep(5)
             
         result = scan(target_player,positions, transfer_fee, wage, age)
-        
-        st.markdown(f"\n**Les _{top_K}_ joueurs les plus similaires sont **:")
+        st.subheader("")
+        st.subheader(f"\n**Les _{top_K}_ joueurs les plus similaires sont **:")
         
         result["Value (€)"] = result["Value (€)"].apply(lambda v: str(float(v) / 1000000))
         create_table(result[show_columns])
