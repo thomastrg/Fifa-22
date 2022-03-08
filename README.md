@@ -26,8 +26,8 @@ Le concept est de prendre **un joueur de référence que l’on souhaite remplac
   
 
 ## Vous trouverez dans ce repositery : 
-* The [Data exploration processing and modeling Notebook]()
-* The [application deployed]()
+* The [Data exploration processing and modeling Notebook](https://github.com/thomastrg/Recommandation_system_footballers_application/blob/main/Syst%C3%A8me_recommandation_footballer_et_explorations.ipynb)
+* The [application deployed](https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py)
 <br> 
 
 
