@@ -24,10 +24,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-app = hy.HydraApp(title="Football application by Thomas",hide_streamlit_markers=True,layout='wide')
+app = hy.HydraApp(title="Football application by Thomas Trang",hide_streamlit_markers=True,layout='wide')
 
 
-@app.addapp(is_home=True)
+@app.addapp(title='Système de recommandation')
 def Accueil():    
     warnings.simplefilter("ignore")
     
@@ -379,60 +379,38 @@ def Accueil():
         result["Value (€)"] = result["Value (€)"].apply(lambda v: str(float(v) / 1000000))
         create_table(result[show_columns])
     else:
-    
-    
-        st.title(" &#128269; Système de recommandation de footballeurs")
+        st.subheader("Bienvenue, cette application lie mes 2 passions : la Data Science et le football &#9917. L'application est composée de 3 onglets.")
+        st.subheader("")
+        st.subheader(" ")       
+        st.title('&#128373; Le Système de Recommandation de Footballeurs')
+        st.subheader(" ")
+        st.subheader("Ce système de recommandation vous permettra de trouver le joueur qui correspondra à chacun de vos critères. ")
+        st.subheader("")
+        st.subheader("Entrez le nom d'un joueur similaire à celui que vous recherchez.")
+        st.subheader("")
         st.subheader(
-            "Bienvenue, je suis Thomas TRANG. Cette application lie mes 2 passions : la Data Science et le football &#9917."
-        )
-        st.subheader(
-            " "
-        )
-        st.subheader(
-            ""
-        )
-        st.subheader(
-            "Cet algorithme vous permettra de trouver le joueur qui correspondra à chacun de vos critères. "
-        )
-        st.subheader(
-            ""
-        )
-    
-        st.subheader(
-            "Entrez le nom du joueur le plus similaire à celui que vous recherchez."
-            
-        )
-        st.subheader(
-            ""
-        )
-        st.subheader(
-            "Puis modifiez les caractéstiques en fonction de celles que vous recherchez chez le joueur que vous voulez recruter."
-            
-        )
-        st.subheader(
-            ""
-        )
+            "Puis adaptez les caractéristiques en fonction de ce que vous cherchez chez vos potentielles recrues.")
+        st.subheader("")
+        st.subheader("L'algorithme vous proposera une liste de joueurs correspondant à vos attentes." )
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+        st.subheader("")
+
         
         st.subheader(
-            "L'algorithme vous proposera une liste de joueurs qui correspondra à vos attentes."
+            "Si vous vous des questions ou des feedbacks, n'hésitez pas à me contacter via LinkedIn : https://www.linkedin.com/in/thomas-trang100/"
         )
-        st.subheader(
-            ""
-        )
-        st.subheader(
-            ""
-        )
-        st.subheader(
-            ""
-        )
-        st.subheader(
-            ""
-        )
-        st.subheader(
-            ""
-        )
-        st.subheader(
-            "Si vous vous des questions ou des feedbacks, n'hésitez pas à me contacter via mon LinkedIn : https://www.linkedin.com/in/thomas-trang100/"
+        st.title(
+            "Thomas TRANG"
         )
 
 @app.addapp(title='Data Visualisation')
@@ -490,9 +468,14 @@ def app3():
         return df
     df = load_data()
     
-    viz_list=["Comparaison des classements des meilleurs joueurs par club",
-              "Comparaison des classements des meilleurs joueurs par pays",
-              "Classement des 100 meilleurs joueurs du monde en 2022",
+    st.title("&#127760; Bienvenue sur l'onglet Data Visualisation")
+    st.subheader('')
+    st.subheader("Choisissez une visualisation à travers le menu déroulant ci-dessous.")
+    st.subheader("")
+    st.subheader('')
+    viz_list=["Classement des 100 meilleurs joueurs du monde en 2022",
+              "Comparaison des classements des meilleurs joueurs par club",
+              "Comparaison des classements des meilleurs joueurs par pays",          
               'Classement du joueur le plus cher par pays en 2022',
               "Classement des pays ayant la plus grande valeur marchande", 
               "Situer les 75 meilleurs joueurs du monde sur une carte", 
@@ -503,8 +486,10 @@ def app3():
               "Classement des clubs ayant les plus grands joueurs de taille en moyenne",
               "Classement des clubs ayant les joueurs les plus lourds en moyenne", 
               "La répartition des meilleurs pieds des n meilleurs joueurs du monde"]
-    viz = st.selectbox("Sélectionnez la visualisation que vous désirez afficher :", options=viz_list)
-    
+    viz = st.selectbox("Sélectionnez une visualisation que vous désirez afficher :", options=viz_list)
+    st.subheader("")
+    st.subheader("")
+    st.subheader("")
     
     
     def upload_local_photo(file):
@@ -769,6 +754,7 @@ def app3():
     is_scan = st.button("LANCER LA RECHERCHE")
 
     if viz == "Comparaison des classements des meilleurs joueurs par club":
+            st.subheader("")
             st.subheader("Choisissez les clubs dont vous souhaitez comparer les meilleurs joueurs puis cliquez sur le bouton 'Lancer la recherche'")
             list_club=df['Club'].unique()
             clubs = st.multiselect("Sélectionnez le(s) club(s) de votre choix:", options=list_club)
@@ -781,6 +767,7 @@ def app3():
                 create_table(res)
 
     if viz == "Comparaison des classements des meilleurs joueurs par pays":
+            st.subheader("")
             st.subheader("Choisissez les pays dont vous souhaitez comparer les meilleurs joueurs puis cliquez sur le bouton 'Lancer la recherche'")
             list_pays=df['Nationality'].unique()
             pays = st.multiselect("Sélectionnez le(s) pays de votre choix:", options=list_pays)
@@ -875,6 +862,8 @@ def Radars():
     df=df[cols_to_keep]
     df['Club_cat']=df['Club'].astype('category').cat.codes
     df['Nationality_cat']=df['Nationality'].astype('category').cat.codes
+    
+    
     
     def value_to_float(x):
         if type(x) == float or type(x) == int:
@@ -989,15 +978,20 @@ def Radars():
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     
     
-    st.sidebar.title("Sélectionnez les joueurs que vous voulez comparer puis lancez la recherche :")
+    st.title("&#9974; Bienvenue sur l'onglet Radars")
+    st.subheader('')
+    st.subheader('')
+    st.subheader("Sur cet onglet, vous pourrez afficher les diagrammes de Kiviat de plusieurs joueurs.")
+    st.subheader('')
+    st.subheader("L'objectif est de comparer des joueurs selon leurs notes.")
+    st.subheader('')
+    
+    
+    players = st.multiselect("Joueur(s) sélectionné(s):", options=player_list, default=None)
     
     
     
-    players = st.sidebar.multiselect("Joueurs à comparer:", options=player_list, default=None)
-    
-    
-    
-    is_scan = st.sidebar.button("LANCER LA RECHERCHE")
+    is_scan = st.button("LANCER LA RECHERCHE")
     
     
     
@@ -1011,20 +1005,13 @@ def Radars():
        "Voici les digrammes des joueurs sélectionnés"
         )   
         for i in players:
-            st.subheader(
-              "-------------------------------------------------------------------------------"
-            )
+
             st.pyplot(radar_plot(df[df['Name'].str.contains(i)]),figsize=(6,6))
+            st.subheader(
+              "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+            )
     
             
-    else :
-        st.title(
-       " Sur cet onglet, vous pourrez comparer les diagrammes de Kiviat de plusieurs joueurs. "
-        )
-        
-        st.subheader(
-           " "
-        )
         
 
 
