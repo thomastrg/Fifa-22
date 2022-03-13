@@ -186,7 +186,7 @@ def Accueil():
     hide_streamlit_style = """
                 <style>
                     [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
-            width: 490px;
+            width: 463px;
         }
         [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
             width: 500px;
