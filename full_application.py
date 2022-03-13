@@ -860,7 +860,9 @@ def app3():
         elif viz == "Classement des pays ayant la plus grande valeur marchande":
             viz_somme_des_valeurs_des_pays()             
         elif viz == "Situer les 75 meilleurs joueurs du monde sur une carte":
-            placer_sur_une_carte_les_joueurs()
+            most1,most2,most3 = st.columns([1,2,1])
+            with most2:
+                placer_sur_une_carte_les_joueurs()
             
     
         
@@ -1024,12 +1026,14 @@ def Radars():
              st.title(
        "Voici les digrammes des joueurs sélectionnés"
         )   
-        for i in players:
-
-            st.pyplot(radar_plot(df[df['Name'].str.contains(i)]),figsize=(6,6))
-            st.subheader(
-              "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-            )
+        most1, most2,most3 = st.columns([1,1,1])
+        with most2:
+            for i in players:
+    
+                st.pyplot(radar_plot(df[df['Name'].str.contains(i)]),figsize=(6,6))
+                st.subheader(
+                  "----------------------------------------------------------------------------"
+                )
     
             
         
