@@ -809,44 +809,56 @@ def app3():
         st.subheader("Choisissez le nombre de joueurs parmi les meilleurs du monde pour lesquels vous voulez voir la distribution des meilleurs pieds puis cliquez sur le bouton 'Lancer la recherche'") 
         nb_joueurs = st.slider("Nombre des meilleurs joueurs du monde sélectionnés : ", min_value=1, max_value=100,value=15)
         if is_scan:
-            st.subheader('Parmi les ' +str(nb_joueurs) +' meilleurs joueurs du monde, voici la proportion des pieds forts de ces derniers')
-            meilleur_pied(nb_joueurs)
+            most1,most2,most3 = st.columns([1,1,1])
+            with most2:            
+                st.subheader('Parmi les ' +str(nb_joueurs) +' meilleurs joueurs du monde, voici la proportion des pieds forts de ces derniers')
+                meilleur_pied(nb_joueurs)
             
     if viz == "Distribution des tailles et poids des n meilleurs joueurs du monde":
         st.subheader("Choisissez le nombre de joueurs parmi les meilleurs du monde pour lesquels vous voulez voir la distribution de la taille et du poids puis cliquez sur le bouton 'Lancer la recherche'") 
         nb_joueurs = st.slider("Nombre des meilleurs joueurs du monde sélectionnés : ", min_value=1, max_value=100,value=15)
         if is_scan:
-            st.subheader('Parmi les ' +str(nb_joueurs) +' meilleurs joueurs du monde, voici la distribution de leurs tailles et poids')
-            distrib_poids_taille(nb_joueurs)
+            most1,most2,most3 = st.columns([1,3,1])
+            with most2:
+                st.subheader('Parmi les ' +str(nb_joueurs) +' meilleurs joueurs du monde, voici la distribution de leurs tailles et poids')
+                distrib_poids_taille(nb_joueurs)
             
     if viz == "Classement des clubs ayant les effectifs les plus chers du monde":
         st.subheader("Choisissez le nombre de clubs que vous souhaitez voir dans le classement puis cliquez sur le bouton 'Lancer la recherche'") 
         nb_clubs = st.slider("Nombre de clubs sélectionnés : ", min_value=1, max_value=100,value=15)
         if is_scan:
-            st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les effectifs les plus chers du monde')
-            equipe_les_plus_cheres(nb_clubs)
+            most1,most2,most3 = st.columns([1,5,1])
+            with most2:
+                st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les effectifs les plus chers du monde')
+                equipe_les_plus_cheres(nb_clubs)
             
     if viz == "Classement des clubs ayant les meilleurs espoirs du monde":
         st.subheader("Choisissez le nombre de clubs que vous souhaitez voir dans le classement puis cliquez sur le bouton 'Lancer la recherche'") 
         nb_clubs = st.slider("Nombre de clubs sélectionnés : ", min_value=1, max_value=100,value=15)
         if is_scan:
-            st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les meilleurs espoirs')
-            equipe_les_meilleurs_espoirs(nb_clubs)
-            
+            most1,most2,most3 = st.columns([1,5,1])
+            with most2:
+                st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les meilleurs espoirs')
+                equipe_les_meilleurs_espoirs(nb_clubs)
+                
     if viz == "Classement des clubs ayant les plus grands joueurs de taille en moyenne":
         st.subheader("Choisissez le nombre de clubs que vous souhaitez voir dans le classement puis cliquez sur le bouton 'Lancer la recherche'") 
         nb_clubs = st.slider("Nombre de clubs sélectionnés : ", min_value=1, max_value=100,value=15)
         if is_scan:
-            st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les joueurs les plus grands de taille en moyenne')
-            equipe_les_plus_grands(nb_clubs)
+            most1,most2,most3 = st.columns([1,5,1])
+            with most2:
+                st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les joueurs les plus grands de taille en moyenne')
+                equipe_les_plus_grands(nb_clubs)
             
             
     if viz == "Classement des clubs ayant les joueurs les plus lourds en moyenne":
         st.subheader("Choisissez le nombre de clubs que vous souhaitez voir dans le classement puis cliquez sur le bouton 'Lancer la recherche'") 
         nb_clubs = st.slider("Nombre de clubs sélectionnés : ", min_value=1, max_value=100,value=15)
         if is_scan:
-            st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les joueurs les plus lourds en moyenne')
-            equipe_les_plus_lourds(nb_clubs)
+            most1,most2,most3 = st.columns([1,5,1])
+            with most2:
+                st.subheader('Voici le classement des ' +str(nb_clubs) +' clubs ayant les joueurs les plus lourds en moyenne')
+                equipe_les_plus_lourds(nb_clubs)
             
             
     if is_scan:
@@ -858,9 +870,11 @@ def app3():
         elif viz == "Classement des 100 joueurs les plus chers du monde en 2022":
             x_plus_chers_joueurs_dumonde()
         elif viz == "Classement des pays ayant la plus grande valeur marchande":
-            viz_somme_des_valeurs_des_pays()             
+            most1,most2,most3 = st.columns([1,6,1])
+            with most2:
+                viz_somme_des_valeurs_des_pays()             
         elif viz == "Situer les 75 meilleurs joueurs du monde sur une carte":
-            most1,most2,most3 = st.columns([1,2,1])
+            most1,most2,most3 = st.columns([1,4,1])
             with most2:
                 placer_sur_une_carte_les_joueurs()
             
