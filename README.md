@@ -12,7 +12,7 @@ Avez-vous déjà entendu parler de **“scouting”** ? Si vous vous intéressez
 
 La notion de **“scouting”** est directement liée à un métier : celui de recruteur. Mais attention ! Tous les recruteurs ne sont pas chargés de dénicher les nouvelles recrues de demain.
 
-*Comment trouver le joueur qui correspond à toutes nos attentes ?*
+*Comment trouver le joueur qui correspond à toutes vos attentes ?*
 
 Le concept est de prendre **un joueur de référence que l’on souhaite remplacer**, car il est voué à être transféré ou un joueur dont **le profil nous intéresse**. Nous lançons alors un algorithme de recommandation qui prendra en compte des données techniques, physiques, psychologiques et contextuelles du joueur de manière à avoir une liste de profils similaires, ainsi qu'à réaliser des recommandations à l’utilisateur pour lui permettre de trouver le joueur adéquat.
 
