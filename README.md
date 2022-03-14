@@ -20,8 +20,8 @@ Le concept est de prendre **un joueur de référence que l’on souhaite remplac
 
 
 ## Ce projet est implémenté en Python et regroupe des tâches de :
-* Data visualisation & exploration : recherche de patterns au sein de données 
-* Algorithme de recommandation et de clustering
+* Algorithme de recommandation
+* Data visualisation & exploration : visualisations statistiques autour de football en 2022  
 * Industrialisation du projet à l'aide de **Streamlit** et de **GitHub**
   
 
