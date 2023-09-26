@@ -56,7 +56,7 @@ def Accueil():
             return float(x.replace('B', '')) * 1000000000
         return x
     
-    @st.cache_data
+    @st.cache(allow_output_mutation=True)
     # Data processing & importation
     def load_data():
         df = pd.read_csv('FIFA22_official_data.csv')
@@ -463,7 +463,7 @@ def app3():
             return float(x.replace('B', '')) * 1000000000
         return x
     
-    @st.cache_data
+    @st.cache(allow_output_mutation=True)
     # Data processing & importation
     def load_data():
         df = pd.read_csv('FIFA22_official_data.csv')
