@@ -3,9 +3,9 @@
 
 
 ## Solution 
-Je suis fier de vous présenter le site hébergeant mon application : [[https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py](https://7ihxrytjgcmhinmvjatkcm.streamlit.app/)]([https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py](https://7ihxrytjgcmhinmvjatkcm.streamlit.app/))
+Je suis fier de vous présenter le site hébergeant mon application : [[https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py]](https://7ihxrytjgcmhinmvjatkcm.streamlit.app/)
 
-
+https://7ihxrytjgcmhinmvjatkcm.streamlit.app/
 ## L'application :
 
 Le concept est de prendre un joueur de référence que l’on souhaite remplacer, car il est voué à être transféré ou un joueur dont le profil nous intéresse. Nous lançons alors un algorithme de recommandation qui prendra en compte des données techniques, physiques, psychologiques et contextuelles du joueur de manière à avoir une liste de profils similaires, ainsi qu'à réaliser des recommandations à l’utilisateur pour lui permettre de trouver le joueur adéquat.
