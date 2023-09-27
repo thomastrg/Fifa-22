@@ -3,7 +3,7 @@
 
 
 ## Solution 
-Je suis fier de vous présenter le site hébergeant mon application : [https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py](https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py)
+Je suis fier de vous présenter le site hébergeant mon application : [[https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py](https://7ihxrytjgcmhinmvjatkcm.streamlit.app/)]([https://share.streamlit.io/thomastrg/recommandation_system_footballers_application/main/full_application.py](https://7ihxrytjgcmhinmvjatkcm.streamlit.app/))
 
 
 ## L'application :
