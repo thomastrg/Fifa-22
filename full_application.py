@@ -475,8 +475,8 @@ def app3():
         df['Wage']=df['Wage'].str.replace('€', '').apply(value_to_float)
         df['Value']=df['Value'].str.replace('€', '').apply(value_to_float)
         
-        df['Height']=df['Height'].str.replace('[dA-Za-z]', '').astype('int')
-        df['Weight']=df['Weight'].str.replace('[dA-Za-z]', '').astype('int')
+        #df['Height']=df['Height'].str.replace('[dA-Za-z]', '').astype('int')
+        #df['Weight']=df['Weight'].str.replace('[dA-Za-z]', '').astype('int')
         df=df.rename(columns={"Value": "Value (€)", "Wage": "Wage (€)"})
         df['Value (€)']=df['Value (€)'].astype('float')
         df['Wage (€)']=df['Wage (€)'].astype('float')
