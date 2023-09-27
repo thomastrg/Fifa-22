@@ -3,7 +3,7 @@
 
 
 ## Solution 
-Je suis fier de vous présenter le site hébergeant mon application : [https://7ihxrytjgcmhinmvjatkcm.streamlit.app/](https://7ihxrytjgcmhinmvjatkcm.streamlit.app/)
+Je suis fier de vous présenter le site hébergeant mon application : [Mon Application](https://7ihxrytjgcmhinmvjatkcm.streamlit.app/)
 
 
 ## L'application :
