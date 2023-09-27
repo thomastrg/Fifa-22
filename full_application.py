@@ -56,7 +56,7 @@ def Accueil():
             return float(x.replace('B', '')) * 1000000000
         return x
     
-    @st.cache(persist=True)
+    @st.cache(allow_output_mutation=True)
     # Data processing & importation
     def load_data():
         df = pd.read_csv('FIFA22_official_data.csv')
@@ -461,7 +461,7 @@ def app3():
             return float(x.replace('B', '')) * 1000000000
         return x
     
-    @st.cache(persist=True)
+    @st.cache(allow_output_mutation=True)
     # Data processing & importation
     def load_data():
         df = pd.read_csv('FIFA22_official_data.csv')
@@ -917,8 +917,8 @@ def Radars():
     df['Wage']=df['Wage'].str.replace('€', '').apply(value_to_float)
     df['Value']=df['Value'].str.replace('€', '').apply(value_to_float)
     
-    df['Height']=df['Height'].str.replace('[dA-Za-z]', '').astype('int')
-    df['Weight']=df['Weight'].str.replace('[dA-Za-z]', '').astype('int')
+    #df['Height']=df['Height'].str.replace('[dA-Za-z]', '').astype('int')
+    #df['Weight']=df['Weight'].str.replace('[dA-Za-z]', '').astype('int')
     df=df.rename(columns={"Value": "Value (€)", "Wage": "Wage (€)"})
     df['Value (€)']=df['Value (€)'].astype('int64')
     df['Wage (€)']=df['Wage (€)'].astype('int64')
